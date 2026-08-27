@@ -44,6 +44,17 @@ Why PostgreSQL specifically?
 ```
 The API is available at `http://localhost:8081` (or whichever port is configured).
 
+## Configuration for multiple environments
+
+The app uses Spring profiles to separate environment-specific configuration:
+- `application.properties` — shared/base config, activates a profile via `spring.profiles.active`
+- `application-dev.properties` — local development defaults
+- `application-prod.properties` — production values, sourced from environment variables
+  (`DB_URL`, `DB_USERNAME`, `DB_PASSWORD`) with no secrets hardcoded
+
+Switch environments by setting `SPRING_PROFILES_ACTIVE` (e.g. via Docker or a deployment
+platform) — no source code changes or rebuild required.
+
 ## API Reference
 
 ### Borrowers
