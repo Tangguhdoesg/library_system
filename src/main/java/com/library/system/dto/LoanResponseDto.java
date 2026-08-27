@@ -1,5 +1,6 @@
 package com.library.system.dto;
 
+import com.library.system.model.Loan;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,16 @@ public class LoanResponseDto {
     private String borrowerName;
     private LocalDateTime borrowedAt;
     private LocalDateTime returnedAt;
+
+    public static LoanResponseDto from(Loan l){
+        return new LoanResponseDto(
+                l.getId(),
+                l.getBook().getId(),
+                l.getBook().getTitle(),
+                l.getBorrower().getId(),
+                l.getBorrower().getName(),
+                l.getBorrowedAt(),
+                l.getReturnedAt() != null ? l.getReturnedAt() : null
+        );
+    }
 }

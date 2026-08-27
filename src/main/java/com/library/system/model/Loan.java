@@ -1,13 +1,19 @@
 package com.library.system.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
 @Table(name="loan")
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
