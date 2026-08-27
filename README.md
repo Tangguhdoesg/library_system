@@ -8,7 +8,7 @@ Simple CRUD Library API for borrowing, adding books, and adding user
 - PostgreSQL (prod)
 - Maven
 - springdoc-openapi (Swagger UI)
-- 
+
 ## Why PostgreSQL
 
 Since this is a simple system with mostly transactional and relational data, i choose an regular sql database.
