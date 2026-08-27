@@ -168,3 +168,25 @@ i have also added some simple unit test using Springtest. Just run the ./mvnw te
 - Authentication layer for hitting api
 - Add logging for clearer debugging
 - cleaner formating and more specific data validation for creating new books or new user / borrower.
+## 12-Factor Conformance
+
+This project follows several of the [12-factor app](https://12factor.net/) principles:
+
+- **Config**: environment-specific settings (DB connection, credentials) live in Spring profiles
+  and environment variables, never hardcoded into application logic.
+- **Backing services**: PostgreSQL is treated as an attached resource — swappable between local
+  and Docker environments through config alone.
+- **Dependencies**: explicitly declared in `pom.xml`, isolated via Maven.
+- **Processes**: the app is stateless; all state lives in the database, so it could run as
+  multiple instances without issue.
+- **Disposability**: fast startup and graceful shutdown (verified in logs) support quick
+  restarts.
+- **Dev/prod parity**: the same database engine (Postgres) is used in both dev and prod
+  configurations, avoiding the drift that comes from using a different DB locally.
+- **Logs**: output goes to stdout by default, which Docker captures as a log stream rather than
+  the app managing log files itself.
+
+Not fully addressed: a formal build/release/run pipeline with immutable, versioned release
+artifacts (this would come from a CI/CD pipeline, which wasn't set up here), horizontal
+concurrency testing across multiple running instances, and admin/maintenance process tooling
+(no one-off scripts were required for this project's current feature set).
