@@ -112,6 +112,7 @@ All errors return a consistent shape:
 }
 ```
 Swagger documentation is also available at http://localhost:8081/swagger-ui/index.html
+
 ## Concurrency handling
 
 The rule "no more than one member borrowing the same book id at a time" is
@@ -143,14 +144,16 @@ Since the task left some behavior unspecified, these are the calls made and why:
 7. **ISBN format isn't strictly validated** (no ISBN-10/13 checksum check) — just required as a
    non-blank string, since the task doesn't specify the exact format expected.
 
+## Unit Test
+i have also added some simple unit test using Springtest. Just run the ./mvnw test and the test will run.
+
 ## Possible next steps
 
 - Pagination on `GET /api/books`
 - Flyway/Liquibase migrations instead of `ddl-auto`
 - CI pipeline running build + tests on push
 - Kubernetes manifests for deployment
-- Validation for lates fee or due date
+- Validation for late fee or due date
 - Authentication layer for hitting api
 - Add logging for clearer debugging
-- 
 - cleaner formating and more specific data validation for creating new books or new user / borrower.

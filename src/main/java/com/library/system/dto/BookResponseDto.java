@@ -2,12 +2,14 @@ package com.library.system.dto;
 
 import com.library.system.model.Book;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class BookResponseDto {
 
     private Long id;
