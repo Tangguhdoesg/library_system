@@ -48,4 +48,9 @@ public class BorrowerService {
                 .collect(Collectors.toList());
     }
 
+    public String deleteBorrower(Long id){
+        borrowerRepository.deleteById(id);
+        return "Book with id " + id + " has been deleted";
+    }
+
 }

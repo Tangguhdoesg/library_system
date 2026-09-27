@@ -33,4 +33,9 @@ public class BookController {
     public ResponseEntity<BookResponseDto> getById(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.OK).body(bookService.getById(id));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(bookService.deleteById(id));
+    }
 }

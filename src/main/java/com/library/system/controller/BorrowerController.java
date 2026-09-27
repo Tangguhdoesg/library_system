@@ -36,6 +36,12 @@ public class BorrowerController {
         return  ResponseEntity.status(HttpStatus.OK).body(borrowerService.getAll());
     }
 
+    @DeleteMapping
+    public ResponseEntity<String> deleteById(
+            @PathVariable Long id){
+        return  ResponseEntity.status(HttpStatus.OK).body(borrowerService.deleteBorrower(id));
+    }
+
 
 
 

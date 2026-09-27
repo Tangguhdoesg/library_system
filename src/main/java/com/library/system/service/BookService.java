@@ -65,4 +65,9 @@ public class BookService {
         return BookResponseDto.from(book,loan==null);
     }
 
+    public String deleteById(Long id){
+        bookRepository.deleteById(id);
+        return "Book with id " + id + " has been deleted";
+    }
+
 }
